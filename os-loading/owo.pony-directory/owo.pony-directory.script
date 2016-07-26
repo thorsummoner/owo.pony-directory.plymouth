@@ -1,0 +1,242 @@
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Window.SetBackgroundTopColor(0.839215686, 0.839215686, 0.839215686);
+Window.SetBackgroundBottomColor(0.839215686, 0.839215686, 0.839215686);
+
+# Main Logo Animation
+anim_pegasystems["frames"] = 190;
+anim_pegasystems["width"] = 620;
+anim_pegasystems["height"] = 870;
+anim_pegasystems["pos_x"] = Window.GetX() + Window.GetWidth() / 2 - anim_pegasystems["width"] / 2;
+anim_pegasystems["pos_y"] = Window.GetX() + Window.GetHeight() / 2 - anim_pegasystems["height"] / 2;
+
+# Spinner Animation
+anim_spinner["frames"] = 100;
+anim_spinner["width"] = 620;
+anim_spinner["height"] = 210;
+
+# Repeated Animation Frames
+
+# Start Frame           Common Frames   End Frame
+anim_pegasystems[1].idle =    8    ; # 9
+anim_pegasystems[16].idle =   3    ; # 19
+anim_pegasystems[20].idle =   1    ; # 21
+anim_pegasystems[23].idle =   1    ; # 24
+anim_pegasystems[25].idle =   1    ; # 26
+anim_pegasystems[28].idle =   1    ; # 29
+anim_pegasystems[30].idle =   1    ; # 31
+anim_pegasystems[33].idle =   1    ; # 34
+anim_pegasystems[35].idle =   1    ; # 36
+anim_pegasystems[38].idle =   1    ; # 39
+anim_pegasystems[40].idle =   1    ; # 41
+anim_pegasystems[42].idle =   1    ; # 43
+anim_pegasystems[44].idle =   14   ; # 58
+anim_pegasystems[59].idle =   2    ; # 61
+anim_pegasystems[63].idle =   1    ; # 64
+anim_pegasystems[65].idle =   1    ; # 66
+anim_pegasystems[68].idle =   1    ; # 69
+anim_pegasystems[70].idle =   1    ; # 71
+anim_pegasystems[73].idle =   9    ; # 82
+anim_pegasystems[83].idle =   2    ; # 85
+anim_pegasystems[86].idle =   6    ; # 92
+anim_pegasystems[93].idle =   5    ; # 98
+anim_pegasystems[99].idle =   13   ; # 112
+anim_pegasystems[113].idle =  4    ; # 117
+anim_pegasystems[118].idle =  1    ; # 119
+anim_pegasystems[120].idle =  1    ; # 121
+anim_pegasystems[123].idle =  1    ; # 124
+anim_pegasystems[125].idle =  1    ; # 126
+anim_pegasystems[128].idle =  1    ; # 129
+anim_pegasystems[130].idle =  10   ; # 140
+anim_pegasystems[141].idle =  1    ; # 142
+anim_pegasystems[143].idle =  4    ; # 147
+anim_pegasystems[148].idle =  1    ; # 149
+anim_pegasystems[150].idle =  1    ; # 151
+anim_pegasystems[155].idle =  1    ; # 156
+anim_pegasystems[158].idle =  9    ; # 167
+anim_pegasystems[168].idle =  1    ; # 169
+anim_pegasystems[170].idle =  10   ; # 180
+anim_pegasystems[181].idle =  1    ; # 182
+anim_pegasystems[183].idle =  1    ; # 184
+anim_pegasystems[185].idle =  1    ; # 186
+anim_pegasystems[188].idle =  1    ; # 189
+anim_pegasystems[190].idle =  1    ; # 191
+anim_pegasystems[193].idle =  1    ; # 194
+anim_pegasystems[195].idle =  1    ; # 196
+anim_pegasystems[197].idle =  4    ; # 201
+anim_pegasystems[203].idle =  5    ; # 208
+anim_pegasystems[209].idle =  8    ; # 217
+anim_pegasystems[218].idle =  4    ; # 222
+anim_pegasystems[223].idle =  6    ; # 229
+anim_pegasystems[230].idle =  6    ; # 236
+anim_pegasystems[237].idle =  12   ; # 249
+anim_pegasystems[250].idle =  12   ; # 262
+anim_pegasystems[265].idle =  2    ; # 267
+anim_pegasystems[268].idle =  1    ; # 269
+anim_pegasystems[270].idle =  7    ; # 277
+anim_pegasystems[278].idle =  1    ; # 279
+anim_pegasystems[280].idle =  11   ; # 291
+anim_pegasystems[292].idle =  4    ; # 296
+anim_pegasystems[298].idle =  1    ; # 299
+anim_pegasystems[300].idle =  1    ; # 301
+anim_pegasystems[303].idle =  1    ; # 304
+anim_pegasystems[308].idle =  1    ; # 309
+anim_pegasystems[310].idle =  1    ; # 311
+
+
+# Load Main Logo Animation Frames
+for (i = 0; i <= anim_pegasystems["frames"]; i++) {
+    anim_pegasystems[i].image = Image("anim_pegasystems/" + i + ".png");
+    anim_pegasystems[i].sprite = Sprite(anim_pegasystems[i].image);
+    anim_pegasystems[i].sprite.SetOpacity(0);
+    anim_pegasystems[i].sprite.SetPosition(
+        anim_pegasystems["pos_x"], anim_pegasystems["pos_y"], 0);
+
+    if (anim_pegasystems[i].idle)  {
+        i += anim_pegasystems[i].idle
+    }
+}
+
+# Load Spinner Animation Frames
+for (i = 0; i <= anim_spinner["frames"]; i++) {
+    anim_spinner[i].image = Image("anim_spinner/" + i + ".png");
+    anim_spinner[i].sprite = Sprite(anim_spinner[i].image);
+    anim_spinner[i].sprite.SetOpacity(0);
+    anim_spinner[i].sprite.SetPosition(
+        anim_pegasystems["pos_x"], anim_pegasystems["pos_y"], 0);
+}
+
+idx = 0;
+idle = 0;
+idx_spinner = 0;
+spin_dir = 1;
+fun boot_callback() {
+    # 50 frames per second
+    if (idx <= anim_pegasystems["frames"]) {
+        if (idle > 0) {
+            idle--;
+            idx++;
+            anim_pegasystems[idx-1].sprite.SetOpacity(0);
+            return
+        }
+        anim_pegasystems[idx-1].sprite.SetOpacity(0);
+        anim_pegasystems[idx].sprite.SetOpacity(1);
+        idx++;
+        if (anim_pegasystems[idx].idle) {
+            idle = anim_pegasystems[idx].idle;
+        }
+    } else {
+        if (idx_spinner <= 1) { spin_dir = 1; }
+        if (idx_spinner >= anim_spinner["frames"]) { spin_dir = -1; }
+
+        anim_spinner[idx_spinner].sprite.SetOpacity(1);
+        anim_spinner[idx_spinner - spin_dir].sprite.SetOpacity(0);
+
+        idx_spinner += spin_dir;
+    }
+}
+
+Plymouth.SetRefreshFunction(boot_callback);
+
+
+#----------------------------------------- Dialogue --------------------------------
+
+status = "normal";
+
+fun dialog_setup() {
+    local.box;
+    local.lock;
+    local.entry;
+
+    box.image = Image("dialogue/box.png");
+    lock.image = Image("dialogue/lock.png");
+    entry.image = Image("dialogue/entry.png");
+
+    box.sprite = Sprite(box.image);
+    box.x = Window.GetX() + Window.GetWidth()  / 2 - box.image.GetWidth ()/2;
+    box.y = Window.GetY() + Window.GetHeight() / 2 - box.image.GetHeight()/2;
+    box.z = 10000;
+    box.sprite.SetPosition(box.x, box.y, box.z);
+
+    lock.sprite = Sprite(lock.image);
+    lock.x = box.x + box.image.GetWidth()/2 - (lock.image.GetWidth() + entry.image.GetWidth()) / 2;
+    lock.y = box.y + box.image.GetHeight()/2 - lock.image.GetHeight()/2;
+    lock.z = box.z + 1;
+    lock.sprite.SetPosition(lock.x, lock.y, lock.z);
+
+    entry.sprite = Sprite(entry.image);
+    entry.x = lock.x + lock.image.GetWidth();
+    entry.y = box.y + box.image.GetHeight()/2 - entry.image.GetHeight()/2;
+    entry.z = box.z + 1;
+    entry.sprite.SetPosition(entry.x, entry.y, entry.z);
+
+    global.dialog.box = box;
+    global.dialog.lock = lock;
+    global.dialog.entry = entry;
+    global.dialog.bullet_image = Image("dialogue/bullet.png");
+    dialog_opacity (1);
+}
+
+fun dialog_opacity(opacity) {
+    dialog.box.sprite.SetOpacity (opacity);
+    dialog.lock.sprite.SetOpacity (opacity);
+    dialog.entry.sprite.SetOpacity (opacity);
+    for (index = 0; dialog.bullet[index]; index++) {
+        dialog.bullet[index].sprite.SetOpacity(opacity);
+    }
+}
+
+fun display_normal_callback () {
+    global.status = "normal";
+    if (global.dialog)
+        dialog_opacity (0);
+}
+
+fun display_password_callback (prompt, bullets) {
+    global.status = "password";
+    if (!global.dialog)
+    dialog_setup();
+    else
+    dialog_opacity(1);
+    for (index = 0; dialog.bullet[index] || index < bullets; index++) {
+        if (!dialog.bullet[index]) {
+            dialog.bullet[index].sprite = Sprite(dialog.bullet_image);
+            dialog.bullet[index].x = dialog.entry.x + index * dialog.bullet_image.GetWidth();
+            dialog.bullet[index].y = dialog.entry.y + dialog.entry.image.GetHeight() / 2 - dialog.bullet_image.GetHeight() / 2;
+            dialog.bullet[index].z = dialog.entry.z + 1;
+            dialog.bullet[index].sprite.SetPosition(dialog.bullet[index].x, dialog.bullet[index].y, dialog.bullet[index].z);
+        }
+        if (index < bullets)
+            dialog.bullet[index].sprite.SetOpacity(1);
+        else
+            dialog.bullet[index].sprite.SetOpacity(0);
+    }
+}
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+
+#----------------------------------------- Message --------------------------------
+
+message_sprite = Sprite();
+message_sprite.SetPosition(Window.GetX() + 10, Window.GetY() + 10, 10000);
+
+fun message_callback (text)
+{
+    my_image = Image.Text(text, 1, 1, 1);
+    message_sprite.SetImage(my_image);
+}
+
+Plymouth.SetMessageFunction(message_callback);

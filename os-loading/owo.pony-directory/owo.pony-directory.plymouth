@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=owo.pony-directory
+Description=PegaSYSTEMS 2046
+ModuleName=script
+
+[script]
+ImageDir=/home/dylang/Videos/owo.pony-directory/os-loading/owo.pony-directory
+ScriptFile=/home/dylang/Videos/owo.pony-directory/os-loading/owo.pony-directory/owo.pony-directory.script
+
